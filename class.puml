@@ -1,0 +1,31 @@
+@startuml
+class User {
+  - id: Long
+  - username: String
+  - email: String
+  - passwordHash: String
+  - birthDate: Date
+  - height: Double
+  - weight: Double
+  + register()
+  + login()
+  + updateProfile()
+}
+
+class Workout {
+  Exercise Exercises
+}
+
+class Exercise {
+  - id: Long
+  - Set: Sets
+}
+class Set {
+  -- Attributes --
+  double Weight
+  int Reps
+}
+
+Workout "1" *-- "many" Exercise : contains
+Exercise "1" *-- "many" Set : contains
+@enduml
